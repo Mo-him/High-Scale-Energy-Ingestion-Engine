@@ -17,6 +17,7 @@ export class PostgresService implements OnModuleInit, OnModuleDestroy {
         this.pool = new Pool({
             connectionString,
             ssl: { rejectUnauthorized: false },
+              family: 4,
             max: 20,
             idleTimeoutMillis: 30000,
             connectionTimeoutMillis: 10000,

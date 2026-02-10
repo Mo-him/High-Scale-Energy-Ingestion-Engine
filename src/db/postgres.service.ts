@@ -14,27 +14,16 @@ export class PostgresService implements OnModuleInit, OnModuleDestroy {
         this.logger.log('Initializing PostgreSQL connection pool');
         this.logger.log(`Connecting to: ${process.env.DB_HOST}:${process.env.DB_PORT}`); // Fixed: Added backticks
 
-        // this.pool = new Pool({
-        //     connectionString,
-        //     ssl: { rejectUnauthorized: false },
-        //       family: 4,
-        //     max: 20,
-        //     idleTimeoutMillis: 30000,
-        //     connectionTimeoutMillis: 10000,
-        // });
-
         this.pool = new Pool({
-  host: process.env.DB_HOST,          // 👈 IMPORTANT
-  port: Number(process.env.DB_PORT),
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  ssl: { rejectUnauthorized: false },
-  family: 4,                          // 👈 NOW IT WORKS
-  max: 20,
-  idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 10000,
-});
+            connectionString,
+            ssl: { rejectUnauthorized: false },
+              family: 4,
+            max: 20,
+            idleTimeoutMillis: 30000,
+            connectionTimeoutMillis: 10000,
+        });
+
+     
 
 
         // Test the connection
